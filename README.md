@@ -7,18 +7,18 @@ you can download this with composer (packagist)
 
 
 #### example 1
-<pre><code>
-require 'vendor/autoload.php'; // composer autoload
+<pre><code>require 'vendor/autoload.php'; // composer autoload
 
-$hook = new \Ryanhs\Hook();
-$hook->on('init', function(){ echo 'hello'; });
+use \Ryanhs\Hook\Hook;
+
+Hook::on('init', function(){ echo 'hello'; });
 /*
 .
 .
 .
 */
 
-$hook->call('init');
+Hook::call('init');
 </code></pre>
 
 # License
