@@ -1,0 +1,21 @@
+{
+    "name": "ryanhs/hook",
+    "description": "small hook library",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "ryan hs",
+            "email": "mr.ryansilalahi@gmail.com"
+        }
+    ],
+    "minimum-stability": "RC",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.4.*"
+    },
+    "autoload": {
+		"psr-4": {
+			"Ryanhs\\Hook\\": "src/"
+		}
+	}
+}
