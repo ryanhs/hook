@@ -53,4 +53,20 @@ class Test extends PHPUnit_Framework_TestCase{
 		$results = Hook::call('init');
 		$this->assertCount(2, $results);
 	}
+	
+	public function test_pass_param(){
+		Hook::clear();
+		
+		$return = null;
+		Hook::on('param_test', function($params) use (&$return){
+			$return = $params['return'];
+		});
+		
+		
+		Hook::call('param_test', array(
+			'return' => 'test param'
+		));
+		
+		$this->assertEquals('test param', $return);
+	}
 }

@@ -15,31 +15,31 @@ class Hook{
 		return true;
 	}
 	
-	public static function call_yield($state){
+	public static function call_yield($state, $params = array()){
 		if(isset(self::$hook[$state])){
 			foreach(self::$hook[$state] as $f){
 				if(is_callable($f)){
-					yield call_user_func($f, array(
+					yield call_user_func($f, array_merge(array(
 						'state' => $state,
 						'timestamp' => time(),
-					));
+					), $params));
 				}
 			}
 		}
 	}
 	
 	// call no yield
-	public static function call($state){
+	public static function call($state, $params = array()){
 		$results = array();
 		
 		if(isset(self::$hook[$state])){
 			$return = true;
 			foreach(self::$hook[$state] as $f){
 				if(is_callable($f)){
-					$results[] = call_user_func($f, array(
+					$results[] = call_user_func($f, array_merge(array(
 						'state' => $state,
 						'timestamp' => time(),
-					));
+					), $params));
 				}
 			}
 		}
